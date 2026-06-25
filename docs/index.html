@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Steam Suite — all-in-one Windows desktop app for Steam idling, card farming, achievements, save backups, giveaways, and automation."
+    />
+    <meta property="og:title" content="Steam Suite" />
+    <meta
+      property="og:description"
+      content="One portable app for your entire Steam workflow. Idling, cards, saves, giveaways and more."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://kava-4.github.io/steam-suite/screenshots/01-dashboard.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://kava-4.github.io/steam-suite/screenshots/01-dashboard.png" />
+    <title>Steam Suite — All-in-one Steam automation for Windows</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <meta name="theme-color" content="#070a0f" />
+  </head>
+  <body>
+    <div class="bg-mesh" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="#top">
+          <svg class="brand-mark" width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect x="7" y="10" width="18" height="14" rx="3.5" stroke="currentColor" stroke-width="1.75" />
+            <circle cx="12.5" cy="17" r="1.35" fill="currentColor" />
+            <circle cx="19.5" cy="17" r="1.35" fill="currentColor" />
+            <path d="M16 10V7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+            <circle cx="16" cy="5.5" r="1.35" fill="currentColor" />
+            <path d="M7 15H5.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+            <path d="M25 15h1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+          </svg>
+          Steam Suite
+        </a>
+
+        <nav class="nav-desktop" aria-label="Primary">
+          <a href="#features">Features</a>
+          <a href="#screenshots">Screenshots</a>
+          <a href="#workflow">How it works</a>
+          <a href="#download">Download</a>
+          <a href="#faq">FAQ</a>
+          <a class="btn btn-primary nav-cta" id="hero-download" href="#download">Get the app</a>
+        </nav>
+
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="nav-panel" id="nav-panel" aria-label="Mobile">
+        <a href="#features">Features</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#workflow">How it works</a>
+        <a href="#download">Download</a>
+        <a href="#build">Build from source</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary" href="#download">Get the app</a>
+        <a href="https://github.com/Kava-4/steam-suite">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Windows desktop · v0.1
+            </span>
+            <h1>
+              Your entire <span class="gradient">Steam workflow</span> in one app.
+            </h1>
+            <p class="lead">
+              Idle games, farm cards, manage achievements, back up saves, enter giveaways, and run scheduled automation — with native helpers embedded in a single portable executable.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#download">Download for Windows</a>
+              <a class="btn btn-secondary" href="https://github.com/Kava-4/steam-suite">Star on GitHub</a>
+            </div>
+            <div class="hero-badges">
+              <span class="badge">Single portable EXE</span>
+              <span class="badge">Self-contained</span>
+              <span class="badge">Multi-account</span>
+              <span class="badge">Save Slots built-in</span>
+              <span class="badge">MIT License</span>
+            </div>
+          </div>
+
+          <figure class="mockup-wrap hero-shot-wrap">
+            <div class="mockup-glow"></div>
+            <div class="hero-shot-frame">
+              <img
+                src="screenshots/01-dashboard.png"
+                alt="Steam Suite dashboard with account stats, library value, and top games"
+                width="1280"
+                height="720"
+                fetchpriority="high"
+              />
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <div class="stats-bar">
+        <div class="wrap stats-grid">
+          <div class="stat reveal">
+            <strong>8+</strong>
+            <span>Integrated modules</span>
+          </div>
+          <div class="stat reveal">
+            <strong>1</strong>
+            <span>Portable EXE</span>
+          </div>
+          <div class="stat reveal">
+            <strong>0</strong>
+            <span>Store scans on library load</span>
+          </div>
+          <div class="stat reveal">
+            <strong>∞</strong>
+            <span>Save profiles &amp; snapshots</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="section wrap" id="features">
+        <div class="section-head reveal">
+          <span class="section-label">Features</span>
+          <h2>Everything you need, nothing you don't.</h2>
+          <p class="sub">A fast Tauri shell with a React UI and Rust backend — plus native .NET helpers for deep Steam integration.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <span class="feature-tag">Core</span>
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+            </div>
+            <h3>Auto Idler</h3>
+            <p>Boost playtime on selected games using the native Steam utility. Tray-friendly desktop app with live process status.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-tag">Core</span>
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            </div>
+            <h3>Card Farming</h3>
+            <p>Detect and farm trading cards. Manual, rate-limited scans protect your IP — no bulk Store requests on startup.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-tag">New</span>
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+            </div>
+            <h3>Save Slots</h3>
+            <p>Profiles, snapshots, and restore with auto-backup (Aki's Law). 100% local save discovery — safe from API blocks.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            </div>
+            <h3>Achievements</h3>
+            <p>Unlock, lock, and toggle achievements per game. Bulk actions when you need to fix a library fast.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <h3>Inventory</h3>
+            <p>Browse per-game inventory, search items, and jump to Steam Community Market listings.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M20 12v8H4v-8"/><path d="M22 7H2v5h20V7Z"/><path d="M12 22V7"/><path d="m12 7-5 5"/><path d="m12 7 5 5"/></svg>
+            </div>
+            <h3>Giveaways &amp; Scheduler</h3>
+            <p>SteamGifts auto-entry, win notifications, key redeem, and a task chain: farm → idle → giveaways → redeem.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section wrap" id="screenshots">
+        <div class="section-head reveal">
+          <span class="section-label">Screenshots</span>
+          <h2>See it in action</h2>
+          <p class="sub">Real UI from v0.1 — dark theme, sidebar navigation, and native Steam helper integration.</p>
+        </div>
+        <div class="screenshot-gallery">
+          <figure class="screenshot-card reveal">
+            <img src="screenshots/01-dashboard.png" alt="Dashboard with Steam level, account value, and top games" loading="lazy" width="1280" height="720" />
+            <figcaption>Dashboard — profile stats &amp; library overview</figcaption>
+          </figure>
+          <figure class="screenshot-card reveal">
+            <img src="screenshots/02-games.png" alt="Games library grid with cover art and playtime" loading="lazy" width="1280" height="720" />
+            <figcaption>Games — library grid from local Steam data</figcaption>
+          </figure>
+          <figure class="screenshot-card reveal">
+            <img src="screenshots/03-idler.png" alt="Auto Idler page with game selection and idle controls" loading="lazy" width="1280" height="720" />
+            <figcaption>Auto Idler — boost playtime on selected games</figcaption>
+          </figure>
+          <figure class="screenshot-card reveal">
+            <img src="screenshots/04-achievements.png" alt="Achievements manager with unlock and lock controls" loading="lazy" width="1280" height="720" />
+            <figcaption>Achievements — unlock, lock, and bulk actions</figcaption>
+          </figure>
+          <figure class="screenshot-card reveal screenshot-card-wide">
+            <img src="screenshots/05-save-slots.png" alt="Save Slots with profiles, snapshots, and local vault" loading="lazy" width="1280" height="720" />
+            <figcaption>Save Slots — profiles, snapshots &amp; local-only save discovery</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section wrap" id="workflow">
+        <div class="section-head reveal">
+          <span class="section-label">How it works</span>
+          <h2>Download once. Steam does the rest.</h2>
+          <p class="sub">Native helpers talk to your local Steam client — not a cloud of scrapers.</p>
+        </div>
+        <div class="workflow">
+          <div class="workflow-step reveal">
+            <h3>Download</h3>
+            <p>Grab the portable <code>Steam-Suite.exe</code>. Helpers are embedded inside the binary.</p>
+          </div>
+          <div class="workflow-step reveal">
+            <h3>First launch</h3>
+            <p>Helpers extract once to <code>%LOCALAPPDATA%\steam-suite\native-libs\</code>.</p>
+          </div>
+          <div class="workflow-step reveal">
+            <h3>Sign in to Steam</h3>
+            <p>Keep the Steam client running. Library data loads from local files and the utility helper.</p>
+          </div>
+          <div class="workflow-step reveal">
+            <h3>Automate</h3>
+            <p>Idle, farm, back up saves, or let the scheduler run your nightly routine.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" id="download">
+        <div class="section-head reveal">
+          <span class="section-label">Download</span>
+          <h2>Ready for Windows 10 &amp; 11</h2>
+          <p class="sub">No .NET 8 install required. Steam client must be running for most features.</p>
+        </div>
+        <div class="download-panel reveal">
+          <div class="download-card">
+            <h3>Steam Suite Portable</h3>
+            <p style="color: var(--text-muted); margin: 0">Single executable with native helpers embedded. Download only from official GitHub Releases.</p>
+            <div class="release-meta">
+              <span>Version <strong id="release-version">…</strong></span>
+              <span id="release-date">Checking GitHub…</span>
+              <span id="release-size"></span>
+            </div>
+            <div class="cta-row" style="margin-top: 0">
+              <a class="btn btn-primary" id="download-btn" href="https://github.com/Kava-4/steam-suite/releases/latest">Download latest release</a>
+              <a class="btn btn-secondary" href="https://github.com/Kava-4/steam-suite/releases">All releases</a>
+            </div>
+          </div>
+          <div>
+            <ul class="req-list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Windows 10 or 11 (64-bit)
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Steam installed, signed in, and running
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                .NET Framework 4.8 (usually preinstalled)
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Optional: Steam API key for playtime enrichment
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" id="build">
+        <div class="section-head reveal">
+          <span class="section-label">Developers</span>
+          <h2>Build from source</h2>
+          <p class="sub">One command produces the same single-file release artifact.</p>
+        </div>
+        <div class="build-grid">
+          <div class="build-card reveal">
+            <h3>Dev mode</h3>
+            <p>Hot reload UI with helpers in <code>libs/</code>.</p>
+            <div class="code-block">
+              <button class="btn btn-ghost copy-btn" type="button" data-copy="#code-dev">Copy</button>
+              <pre id="code-dev">pnpm install
+$env:Path = "$env:USERPROFILE\.cargo\bin;" + $env:Path
+pnpm td</pre>
+            </div>
+          </div>
+          <div class="build-card reveal">
+            <h3>Release build</h3>
+            <p>Builds helpers, embeds them, outputs <code>dist/Steam-Suite.exe</code>.</p>
+            <div class="code-block">
+              <button class="btn btn-ghost copy-btn" type="button" data-copy="#code-release">Copy</button>
+              <pre id="code-release">$env:SAVESLOT_STUDIO_ROOT = "C:\path\to\SaveSlot-Studio"
+pnpm release</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" id="faq">
+        <div class="section-head reveal">
+          <span class="section-label">FAQ</span>
+          <h2>Common questions</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Is this safe for my Steam account?
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">Steam Suite integrates with your local Steam client — registry, VDF files, and bundled native helpers. Built-in rate limits reduce aggressive Store traffic. Use responsibly; you are responsible for how you use automation with your Steam account.</div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Why one EXE if helpers extract on disk?
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">Windows .NET helpers must run as separate processes with their DLLs. We embed them inside the app binary and extract once to AppData — you still ship a single download, without asking users to manage a <code>libs/</code> folder.</div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              How does Save Slots avoid IP blocks?
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">Save discovery scans your local disk and Steam userdata paths only. No Steam Web API or Store requests are made for backup, restore, or listing games with saves.</div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Can I use multiple Steam accounts?
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">Yes. Per-account profiles store credentials, idle lists, farm lists, and region settings. Switch accounts from the sidebar or Settings.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap">
+        <div class="cta-banner reveal">
+          <h2>Take control of your Steam library</h2>
+          <p>Free, open source, and built for power users who want one dashboard instead of ten tools.</p>
+          <a class="btn btn-primary" href="#download">Download Steam Suite</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top" style="margin-bottom: 0.75rem">
+            <svg class="brand-mark" width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect x="7" y="10" width="18" height="14" rx="3.5" stroke="currentColor" stroke-width="1.75" />
+              <circle cx="12.5" cy="17" r="1.35" fill="currentColor" />
+              <circle cx="19.5" cy="17" r="1.35" fill="currentColor" />
+            </svg>
+            Steam Suite
+          </a>
+          <p>All-in-one Steam automation for Windows. MIT licensed by Kava-4.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#screenshots">Screenshots</a>
+          <a href="#download">Download</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Project</h4>
+          <a href="https://github.com/Kava-4/steam-suite">GitHub</a>
+          <a href="https://github.com/Kava-4/steam-suite/releases">Releases</a>
+          <a href="#build">Build guide</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="https://github.com/Kava-4/steam-suite/blob/main/LICENSE">License</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://kava-4.github.io/steam-suite/">Website</a>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <span>© Kava-4 · MIT License</span>
+        <span>Not affiliated with Valve or Steam.</span>
+      </div>
+    </footer>
+
+    <script src="assets/main.js" defer></script>
+  </body>
+</html>

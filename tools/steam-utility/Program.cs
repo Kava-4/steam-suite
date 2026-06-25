@@ -1,0 +1,93 @@
+using System;
+using System.Collections.Generic;
+using SteamUtility.Commands;
+
+namespace SteamUtility
+{
+    static class Program
+    {
+        static Dictionary<string, ICommand> commands = new Dictionary<string, ICommand>
+        {
+            { "idle", new Idle() },
+            { "unlock_achievement", new UnlockAchievement() },
+            { "lock_achievement", new LockAchievement() },
+            { "toggle_achievement", new ToggleAchievement() },
+            { "unlock_all_achievements", new UnlockAllAchievements() },
+            { "lock_all_achievements", new LockAllAchievements() },
+            { "update_stats", new UpdateStats() },
+            { "reset_all_stats", new ResetAllStats() },
+            { "get_achievement_data", new GetAchievementData() },
+            { "check_ownership", new CheckOwnership() },
+        };
+
+        static void Main(string[] args)
+        {
+            if (args.Length == 0)
+            {
+                ShowUsage();
+                return;
+            }
+
+            string command = args[0].ToLower();
+
+            if (commands.TryGetValue(command, out ICommand commandHandler))
+            {
+                commandHandler.Execute(args);
+            }
+            else if (command == "--help" || command == "-h")
+            {
+                ShowUsage();
+            }
+            else
+            {
+                Console.WriteLine($"Unknown command: {command} \n\nUse --help for help");
+            }
+        }
+
+        static void ShowUsage()
+        {
+            var commandUsages = new Dictionary<string, string>
+            {
+                {
+                    "check_ownership <output_path> [app_ids]",
+                    "Check if the user owns a specific game"
+                },
+                { "idle <app_id>", "Start idling a specific game" },
+                { "get_achievement_data <app_id> [output_dir]", "Get achievement data" },
+                { "unlock_achievement <app_id> <ach_id>", "Unlock a single achievement" },
+                { "lock_achievement <app_id> <ach_id>", "Lock a single achievement" },
+                {
+                    "toggle_achievement <app_id> <ach_id>",
+                    "Toggle a single achievement's lock state"
+                },
+                { "unlock_all_achievements <app_id>", "Unlock all achievements" },
+                { "lock_all_achievements <app_id>", "Lock all achievements" },
+                { "update_stats <app_id> <[stat_objects...]>", "Update achievement statistics" },
+                { "reset_all_stats <app_id>", "Reset all statistics" },
+            };
+
+            Console.WriteLine(
+                "SteamUtility 1.6.0 by zevnda - https://github.com/zevnda/steam-utility"
+            );
+            Console.WriteLine("\nUsage:");
+            Console.WriteLine("    SteamUtility.exe <command> [args...]");
+            Console.WriteLine("    SteamUtility.exe [--help | -h]");
+            Console.WriteLine("\nCommands:");
+
+            foreach (var cmd in commandUsages)
+            {
+                Console.WriteLine($"    {cmd.Key, -50} {cmd.Value}");
+            }
+
+            Console.WriteLine("\nExamples:");
+            Console.WriteLine("    SteamUtility.exe idle 440");
+            Console.WriteLine("    SteamUtility.exe unlock_achievement 440 WIN_100_GAMES");
+            Console.WriteLine(
+                "    SteamUtility.exe update_stats 440 [\"{name: 'WINS', value: 100}\", \"{name: 'MONEY', value: 19.50}\", ...]"
+            );
+            Console.WriteLine(
+                "    SteamUtility.exe check_ownership \"C:\\output\\games.json\" \"[730,570,440]\""
+            );
+        }
+    }
+}

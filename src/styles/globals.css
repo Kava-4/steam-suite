@@ -1,0 +1,298 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+:root {
+  /* Backgrounds — solid matte, no blur */
+  --bg-base: #121316;
+  --bg-panel: #1a1c20;
+  --bg-inset: #141519;
+  --bg-interactive: #23262d;
+
+  /* Legacy aliases */
+  --bg-surface: var(--bg-panel);
+  --bg-surface-2: var(--bg-inset);
+  --bg-hover: var(--bg-interactive);
+
+  /* Typography */
+  --text-title: #ffffff;
+  --text-body: #eeeeee;
+  --text-muted: #717681;
+
+  --text-primary: var(--text-body);
+  --text-secondary: var(--text-muted);
+  --text-tertiary: #5a5f6b;
+
+  /* Accent — ShareableCard dark theme blue */
+  --accent: #006fee;
+  --accent-dim: #0056cc;
+  --accent-border: rgba(0, 111, 238, 0.3);
+
+  --success: #86efac;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --sb-thumb: rgba(255, 255, 255, 0.12);
+  --sb-track: rgba(255, 255, 255, 0.04);
+
+  --accent-foreground: #121316;
+}
+
+.dark,
+[data-theme="dark"] {
+  --background: #121316;
+  --foreground: #eeeeee;
+  --accent: #006fee;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+html.tauri-window,
+html.tauri-window body {
+  background: transparent;
+}
+
+html.tauri-window #root {
+  background: transparent;
+}
+
+.app-shell {
+  height: 100vh;
+  background: var(--bg-base);
+}
+
+.app-shell-rounded {
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
+
+.app-shell-maximized {
+  border-radius: 0;
+}
+
+body {
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  background: var(--bg-base);
+  color: var(--text-body);
+}
+
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sb-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb);
+  border-radius: 4px;
+}
+
+/* Display titles — Space Grotesk, uppercase */
+.font-display {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-title);
+}
+
+.text-title {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-title);
+}
+
+.text-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.text-section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.text-micro {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+/* Panels — solid, no border, no blur */
+.holo-panel,
+.glass-panel {
+  background: var(--bg-panel);
+  border: none;
+  border-radius: var(--radius-md);
+  transition: background 0.15s ease;
+}
+
+.holo-panel.interactive:hover,
+.glass-panel.interactive:hover {
+  background: var(--bg-interactive);
+}
+
+.inset-panel {
+  background: var(--bg-inset);
+  border: none;
+  border-radius: var(--radius-sm);
+}
+
+.inner-glow {
+  box-shadow: none;
+}
+
+/* Sidebar */
+.app-sidebar {
+  background: var(--bg-base);
+}
+
+/* Navigation */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-body);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nav-item:hover {
+  background: var(--bg-interactive);
+  color: var(--text-title);
+}
+
+.nav-item-active {
+  background: var(--bg-interactive);
+  color: var(--text-title);
+  font-weight: 500;
+}
+
+.nav-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* Buttons */
+.btn-primary,
+.gradient-btn {
+  background: var(--bg-interactive);
+  color: var(--text-title);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.btn-primary:hover:not(:disabled),
+.gradient-btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.btn-primary:disabled,
+.gradient-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Inputs */
+.hyper-input {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--bg-inset);
+  padding: 0.5rem 0.75rem;
+  font-size: 13px;
+  color: var(--text-body);
+  outline: none;
+  transition: background 0.15s ease;
+}
+
+.hyper-input::placeholder {
+  color: var(--text-muted);
+}
+
+.hyper-input:focus {
+  background: var(--bg-interactive);
+}
+
+/* Chrome */
+.titlebar {
+  position: relative;
+  z-index: 100;
+  background: var(--bg-base);
+}
+
+.app-status-bar {
+  background: var(--bg-inset);
+}
+
+.app-banner {
+  background: var(--bg-inset);
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.app-canvas {
+  background: var(--bg-panel);
+}
+
+.avatar-ring {
+  border: none;
+  border-radius: 9999px;
+}
+
+.accent-ring-selected {
+  outline: 2px solid var(--accent-border);
+  outline-offset: 0;
+}
+
+.accent-glow-active {
+  box-shadow: none;
+  background: var(--bg-interactive);
+}
